@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>																	<!-- makes mobile not zoomable -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="gtf-8"/>
+		<title>ViaHome</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$(window).scroll( function(){			
+						var bottomOfObj = $('#imgOne').position().top + $('#imgOne').outerHeight();
+						var bottomOfWindow = $(window).scrollTop() + $(window).height();
+
+						if(bottomOfWindow > bottomOfObj){
+							$('#imgOne').animate({'opacity':'1'}, 500);
+							$('#imgTwo').delay(1000).animate({'opacity':'1'}, 500);
+							$('#imgThree').delay(2000).animate({'opacity':'1'}, 500);
+						}
+					}); 
+				
+				});
+		</script>
+		
+		<style>
+			@font-face {
+				font-family: AccordLight;
+				src: url(AccordLight.otf) format("truetype");
+			}
+			
+			@font-face {
+				font-family: AccordBold;
+				src: url(AccordBold.otf) format("truetype");
+			}
+			
+			* {
+				font-family: AccordLight;
+			}
+			
+			body, html{
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#imgOne, #imgTwo, #imgThree {
+				opacity: 0;
+			}
+
+			.head {
+				<!-- only use color when neccessary-->
+				<!--background-color: RGB(31,183,233); -->
+				padding: 50%;
+			}
+			
+			.logo, .img {
+				max-height: 15%;
+				max-width: 15%;
+				min-height: 10%;
+				min-width: 10%;
+				padding: 30px;
+			}
+			
+			.img {
+				max-height: 150px;
+				max-width: 150px;
+				padding-top: 80px;
+				padding-left: 15px;			
+			}
+			
+			.center {
+				width: 50%; 
+				margin: 0 auto;
+				text-align: center;
+				vertical-align: middle;
+			}
+
+			.colThree {
+				float: left;
+				width: 30%;
+				padding: 10px;
+			}
+
+			.colTwo {
+				float: left;
+				width: 45%;
+				padding: 10px;
+			}
+			
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.selected {
+				font-family: AccordBold;
+				color: RGB(31,183,233);
+			}
+			
+			.personalBubble {
+				padding: 3%;
+				list-style-type: none;
+			}
+			
+			.viaBlue {
+				width: 100%;
+				background-color: RGB(31,183,233);
+				background-image: linear-gradient(white, RGB(31,183,233));
+				box-shadow: 0 10px 30px #dedede;
+			}
+			
+			.viaBlueReverse {
+				width: 100%;
+				background-color: RGB(31,183,233);
+				background-image: linear-gradient(RGB(31,183,233), white);
+				box-shadow: 0 -10px 20px #dedede;
+			}
+
+			.whiteSpace {
+				min-height: 70%;
+			}
+
+			.butt {
+				width: 150px;
+				display: inline;
+				color: RGB(31,183,233);
+				border-top: 10%;
+				padding: 12px 50px;
+				border-radius: 8px;
+				background-color: white;
+				font-size: 25px;
+				font-family: AccordBold;
+				box-shadow: inset 0 0 30px #dedede;
+			}
+
+			.buttReverseColors {
+				color: white;
+				background-color: #3fc1ecb3;
+				box-shadow: inset 0 0 30px #2194ba94;
+			}
+			
+			@media only screen and (max-width: 700px) {
+				.butt {
+					width: 150px;
+					display: block;
+					margin: 0 auto;
+					text-align: center;
+					vertical-align: middle;
+				}
+
+				.colTwo {
+					width: 100%;
+				}
+					
+				.colThree {
+					width: 100%;
+				}
+				
+				.theLastAsk {
+					margin-bottom: 50px;
+					margin: 0 auto !important;
+					text-align: center;
+					vertical-align: middle;
+				}
+		
+				.buttReverseColors {
+					margin-bottom: 200px;
+				}
+	
+				.smallScreen {
+					margin-top: 75px;
+					margin-bottom: 100px !important;
+				}
+			
+			}
+		</style>
+	</head>
+
+	<body>
+	<div class="head center">
+		<img src="Via_Logo_Blue_Stacked_transparent.png" alt="Via_Logo" class="logo">
+	</div>
+	<div class="center">
+		<a class="personalBubble">cities</a> <a class="personalBubble selected">passenger</a> <a class="personalBubble">driver</a> <a class="personalBubble">partner</a> <a class="personalBubble">news</a> <a class="personalBubble">help</a>
+		<br/>
+	</div>
+	<div class="viaBlue center whiteSpace">
+		<h1 style="padding-top: 5%;">Personalized Public Transit</h1>
+		<h2 style="padding-bottom: 5%;">A more economical, sustainable way to travel.</h2>
+		<h1 class="butt">Download Via</h1>
+	</div>
+	<div class="center row whiteSpace" style="width: 100%">
+		<div class="colThree" id="imgOne">
+			<img src="home_section_a_icon_1.png" alt="Via_Phone_in_hand_image" class="img">
+			<h3 style="padding-bottom: 30px;">1. Book a shared or personal ride</h3>
+		</div>
+		<div class="colThree" id="imgTwo">
+			<img src="home_section_a_icon_2.png" alt="Via_street_intersection_image" class="img">
+			<h3>2. Get picked up on a nearby corner</h3>
+		</div>
+		<div class="colThree" id="imgThree">
+			<img src="home_section_a_icon_3.png" alt="Via_sharing_is_caring_image" class="img">
+			<h3>3. Reach your destination with no detours</h3>
+		</div>
+	</div>
+
+	<div class="center whiteSpace viaBlueReverse row">
+		<h1 style="padding: 5%;"></h1>
+		<div class="colTwo theLastAsk" style="margin-left: 20px;">
+			<h1 class="butt" style="margin-top: 10%;">Via for Free</h1>
+			<h3 style="margin-top: 35px;">when you refer a friend</h3>
+		</div>
+		<div class="colTwo theLastAsk" style="margin-right: 20px;">
+			<h2 class="butt" style="margin-bottom: 5%;">Giftcards</h2>
+			<h3 style="margin-top: 35px;">the gift of transportation</h3>
+		</div>
+	</div>
+	<div class="center smallScreen" style="margin-bottom: 50px;">
+		<h1 class="butt buttReverseColors theLastAsk">Download Via</h1>
+	</div>
+
+	<div class="center head">
+		<a class="personalBubble">help</a>
+		<a class="personalBubble">contact us</a>
+		<a class="personalBubble">careers</a>
+		<a class="personalBubble">terms of use</a>
+		<a class="personalBubble">privacy policy</a>
+	</div>
+	</body>
+</html>
